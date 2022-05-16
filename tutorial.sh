@@ -24,8 +24,8 @@ sed -n '1~4s/^@/>/p;2~4p' /ifs/groups/eces450650Grp/data/mappings/evol1.sorted.u
 sed -n '1~4s/^@/>/p;2~4p' /ifs/groups/eces450650Grp/data/mappings/evol1.sorted.unmapped.R2.fastq > tmp2.fasta
 
 # create the diamond databases
-diamond makedb --in tmp1.fasta -d evol1.sorted.unmapped.R1 --taxonmap gene_refseq_uniprotkb_collab.gz
-diamond makedb --in tmp2.fasta -d evol1.sorted.unmapped.R2 --taxonmap gene_refseq_uniprotkb_collab.gz
+diamond makedb --in tmp1.fasta -d evol1.sorted.unmapped.R1
+diamond makedb --in tmp2.fasta -d evol1.sorted.unmapped.R2
 
 # remove the unneeded fasta files
 rm tmp1.fasta
