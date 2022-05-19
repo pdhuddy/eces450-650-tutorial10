@@ -1,4 +1,6 @@
 ECES 450-650 Tutorial 10
+Students: Phil Huddy, Steven Lee, Jacob Wong
+Professor: Dr. Gail L. Rosen
 
 This is the public repo for Tutorial 10 of ECES 450/650 at Drexel University
 
