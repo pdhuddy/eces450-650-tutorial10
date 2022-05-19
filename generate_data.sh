@@ -19,6 +19,7 @@
 
 DATA_PATH=/ifs/groups/eces450650Grp/ECES450650_SP22/diamond
 
+### old method for retrieving data, way to slow for large datasets
 #gzip -dk $DATA_PATH/gene_refseq_uniprotkb_collab.gz
 #sed '1d' $DATA_PATH/gene_refseq_uniprotkb_collab > $DATA_PATH/all_uniprot
 #cut -f2 $DATA_PATH/all_uniprot > $DATA_PATH/uniprot_ids
@@ -35,17 +36,23 @@ DATA_PATH=/ifs/groups/eces450650Grp/ECES450650_SP22/diamond
 #rm $DATA_PATH/all_uniprot
 #rm $DATA_PATH/uniprot_ids
 
+# get the current directory
 CUR_DIR=$(pwd)
 
+# change to the directory where we want to store the data
 cd $DATA_PATH
 
+# retrieve the uniprot data
 wget https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/complete/uniprot_sprot.fasta.gz
 wget https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/complete/uniprot_trembl.fasta.gz
 
+# leave the dir, we don't need to be in it anymore
 cd $CUR_DIR
 
+# combine the two dbs into one
 cat $DATA_PATH/uniprot_sprot.fasta.gz $DATA_PATH/uniprot_trembl.fasta.gz > $DATA_PATH/uniprot.fasta.gz
 
-#rm $DATA_PATH/uniprot_sprot.fasta.gz
-#rm $DATA_PATH/uniprot_trembl.fasta.gz
+# remove the individual files now that we have combined one
+rm $DATA_PATH/uniprot_sprot.fasta.gz
+rm $DATA_PATH/uniprot_trembl.fasta.gz
 
