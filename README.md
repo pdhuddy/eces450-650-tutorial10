@@ -12,3 +12,7 @@ the database is made up of all uniprotkb proteins in from both swiss-prot and tr
 
 tutorial.sh aligns the DNA query sequences against the diamond database
 tutorial_mp.sh is a script that will run diamond while taking advantage of distributed computing
+
+tempfix.sh counts the number of classified proteins due to different file names when running in parallel mode
+
+our results can be found in results.tar.gz
